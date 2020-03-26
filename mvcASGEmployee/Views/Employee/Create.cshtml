@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form id="frmDetail" method="post" action="@Url.Action("InsertRecord")">
+        Enter EmployeeID :<input name="EmployeeID" />
+        <br />
+        Enter FirstName :<input name="FirstName " />
+        <br />
+
+        Enter LastName  :<input name="LastName " />
+        <br />
+        Select Gender: <input type="radio" name="Gender" value="male" checked>Male
+        <input type="radio" name="Gender" value="female">Female
+        <br />
+        Enter HiredDate  :<input name="HiredDate" />
+        <br />
+        Enter Salary:<input name="Salary" />
+        <br />
+        <input type="submit" value="Submit" name="action" />
+        <input type="submit" value="Cancel" name="action" />
+    </form>  
+</body>
+</html>

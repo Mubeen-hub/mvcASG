@@ -1,0 +1,66 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable  
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <form method="post" name="Display">
+        <h2>Home</h2>
+        @Html.ActionLink("Add New Record", "Insert")
+        <br />
+        @{
+            if (Model.Rows.Count > 0)
+            {
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>
+                                EmployeeID
+                            </td>
+                            <td>
+                                FirstName
+                            </td>
+                            <td>
+                                LastName
+                            </td>
+                            <td>Gender</td>
+
+                            <td>HiredDate </td>
+                            <td>Salary  </td>
+                        </tr>
+                    </thead>
+                    @foreach (DataRow dr in Model.Rows)
+                    {
+                        <tr>
+                            <td>@dr["EmployeeID"].ToString()  </td>
+                            <td>@dr["FirstName"].ToString()  </td>
+                            <td>@dr["LastName"].ToString()  </td>
+                            <td>@dr["Gender"].ToString()  </td>
+                            <td>@dr["HiredDate"].ToString()  </td>
+                            <td>@dr["Salary"].ToString()  </td>
+                            <td>@Html.ActionLink("Edit ", "Edit", new { EmployeeID = dr["EmployeeID"].ToString() })</td>
+                            <td>@Html.ActionLink("| Delete", "Delete", new { EmployeeID = dr["EmployeeID"].ToString() })</td>
+                        </tr>
+                    }
+
+                </table>
+                <br />
+            }
+            else
+            {
+                <span> No records found!!</span>
+            }
+        }
+
+    </form>
+</body>
+</html>

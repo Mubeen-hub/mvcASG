@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <form id="frmDetail" method="post" action="@Url.Action("UpdateRecord")">
+        Enter FirstName :<input name="FirstName " value="@Model.Rows[0]["FirstName"]" />
+        <br />
+        Enter LastName:<input name="LastName" value="@Model.Rows[0]["LastName"]" />
+        <br />
+        Select Gender:
+
+        @if (Model.Rows[0]["Gender"].ToString().ToLower() == "male")
+        {
+            <input type="radio" name="Gender" value="male" checked /> @Html.Raw("Male")
+            <input type="radio" name="Gender" value="female" /> @Html.Raw("Female")
+        }
+        else
+        {
+            <input type="radio" name="Gender" value="male">  @Html.Raw("Male")
+            <input type="radio" name="Gender" value="female" checked /> @Html.Raw("Female")
+        }
+        Enter HiredDate :<input name="HiredDate " value="@Model.Rows[0]["HiredDate"]" />
+        <br />
+        Enter Salary:<input name="Salary" value="@Model.Rows[0]["Salary"]" />
+        <br />
+
+        <input type="hidden" name="EmployeeID" value="@Model.Rows[0]["EmployeeID"]" />
+        <br />
+        <input type="submit" value="Submit" name="action" />
+        <input type="submit" value="Cancel" name="action" />
+    </form>
+    
+</body>
+</html>
